@@ -1,0 +1,51 @@
+﻿<Page
+    x:Class="FrameChange.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FrameChange"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="splitview1.IsPaneOpen" Value="True"/>
+                        <Setter Target="splitview1.DisplayMode" Value="Inline"/>
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="narrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="splitview1.DisplayMode" Value="Overlay"/>
+                        <Setter Target="splitview1.IsPaneOpen" Value="False"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <StackPanel Orientation="Horizontal" Canvas.ZIndex="100">
+            <ToggleButton Style="{StaticResource SymbolButton}" Click="ToggleButton_Click"/>
+        </StackPanel>
+        
+        <SplitView x:Name="splitview1" IsPaneOpen="True">            <SplitView.Pane>                <ListView x:Name="listView1" SelectionChanged="listView1_SelectionChanged" Margin="0,52,0,12">
+                    <ListView.ItemTemplate>
+                        <DataTemplate >
+                            <StackPanel>
+                                <TextBlock Text="{Binding title}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>            </SplitView.Pane>
+            <Grid>                <Frame x:Name="myFrame" Margin="0,42,0,0"/>            </Grid>        </SplitView>
+
+    </Grid>
+</Page>

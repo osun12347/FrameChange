@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="FrameChange.Page2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FrameChange"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <!--<TextBlock Text="Page2" FontSize="40"/>-->
+        <Pivot Title="">
+            <PivotItem Header="New">
+                <TextBlock Text="This is New"/>
+            </PivotItem>
+            <PivotItem Header="Flagged">
+                <TextBlock Text="This is Flagged"/>
+            </PivotItem>
+            <PivotItem Header="All">
+                <TextBlock Text="This is All"/>
+            </PivotItem>
+        </Pivot>
+    </Grid>
+</Page>
